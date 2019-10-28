@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" concent="width=device-width, inital-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie-edge" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"/>
+    <link rel="stylesheet" href="style.css"/>
+    <link
+      href="https://fonts.googleapis.com/css?family=Kanit|Ropa+Sans&display=swap"
+      rel="stylesheet"/>
+  </head>
+
+  <body class="body bg-light">
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Weather Dashboard</a>
+    </nav>
+
+    <div class="row">
+      <div class="col-6 col-md-4">
+          <div id="buttons-view"></div>
+      <div class="col-12 col-md-8" id="cityinfo"></div>
+        
+    </div>
+    
+        <div class="col-12 col-md-4">
+        <div id="cities-view"></div>
+  </div> 
+</div>  
+</br>
+</br>
+<div class="row">
+    <div class="col-6 col-md-4">
+      <form id="city-form">
+        <label for="city-input">Add a city</label>
+        <input type="text" id="city-input"/>
+        <br />
+        <br />
+      <input id="add-city" type="submit" value="Add a city">
+      </form>
+    </div>
+  </div>      
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script type="text/javascript">
+        var APIKey = "23ae5d398859e9f70c376412f82e08b1";
+
+        var cities = [ "Austin", "Chicago", "New York", "Orlando", "San Francisco", "Seattle", "Denver", "Atlanta" ];
+
+        function displayCityWeather() {
+          var city = $(this).attr("data-name");
+          var url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+          $.ajax({
+            url,
+            method: "GET"
+          }).then(function(response) {
+            console.log(response);
+
+            var tempF = (response.main.temp - 273.15) * 1.80 + 32;
+            var tempFshort = Math.round(tempF * 10) / 10;
+
+            var cityDiv = $("<div class='city'>");
+
+            var city = response.name;
+
+            var cityDisplay = $("<h2>").text(response.name);
+
+            cityDiv.append(cityDisplay);
+
+            var temp = response.main.temp;
+
+            var tempDisplay = $("<p>").text("Temperature: " + tempFshort);
+
+            cityDiv.append(tempDisplay);
+
+            var windSpeed = response.wind.speed;
+
+            var windSpeedDisplay = $("<p>").text("Windspeed: " + response.wind.speed + " Mph");
+
+            cityDiv.append(windSpeedDisplay);
+
+            var humidity = response.main.humidity;
+
+            var humidityDisplay = $("<p>").text("Humidity: " + response.main.humidity + " %");
+
+            cityDiv.append(humidityDisplay);
+
+            $("#cities-view").html(cityDiv);
+          });
+        }
+
+        function renderButtons() {
+
+          $("#buttons-view").empty();
+
+          for (var i = 0; i < cities.length; i++) {
+
+            var a = $("<button>");
+
+            a.addClass("city-btn");
+
+            a.attr("data-name", cities[i]);
+
+            a.text(cities[i]);
+
+            $("#buttons-view").append(a);
+          }
+        }
+
+        $("#add-city").on("click", function(event) {
+
+          event.preventDefault();
+
+          var city = $("#city-input").val().trim();
+
+          cities.push(city);
+
+          renderButtons();
+        });
+
+        $(document).on("click", ".city-btn", displayCityWeather);
+
+        renderButtons();
+      </script>
+    </div>
+  </body>
+</html>

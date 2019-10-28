@@ -1,0 +1,96 @@
+.row {
+    text-align: left;
+}
+body bg-light {
+    font-family: 'Kanit', sans-serif;
+    padding: 20px;
+}
+col-6 col-md-4 {
+    padding-left: 20px;
+}
+#add-city {
+    font-family: 'Kanit', sans-serif;
+    Padding-top: 10px;
+    color: black;
+    background: white;
+}
+col-6 col-md-4 {
+    font-family: 'Kanit', sans-serif;
+    Padding-top: 10px;
+    color: black;
+    background: white;
+
+}
+
+#city-input {
+    font-family: 'Kanit', sans-serif;
+    Padding-top: 10px;
+    color: black;
+    background: white;
+    padding: 20px;
+}
+h1 {
+    font-family: 'Kanit', sans-serif;
+    padding-top: 20px;
+    padding-left: 20px;
+    
+}
+h2 {
+    font-family: 'Kanit', sans-serif;
+    padding-left: 20px;
+    background: lightgrey;
+}    
+.navbar-brand {
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    width: 100%;
+    font-size: 40px;
+}
+h6 {
+    padding-top: 10px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 25px;
+}
+.container{
+    font-family: 'Ropa Sans', sans-serif;
+    background-color: white;
+    width: 100%;
+    text-align: center;
+
+}
+
+#display{
+    width: 35%;
+    height: 35px;
+    border-color: lightgrey;
+    margin-left: 25px;
+    
+   
+
+}
+button{
+    border-radius: 25px;
+    color: white;
+    padding: 5px;
+    background-color:grey;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 50%;
+    align-content: left;
+}
+
+#city-form {
+    border-radius: 25px;
+    color: white;
+    padding: 5px;
+    background-color:grey;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 30px;
+    width: 30%;
+}
+
+
