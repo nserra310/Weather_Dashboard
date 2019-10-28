@@ -66,30 +66,37 @@ h6 {
     height: 35px;
     border-color: lightgrey;
     margin-left: 25px;
-    
-   
-
 }
 button{
+    font-family: 'Ropa Sans', sans-serif;
     border-radius: 25px;
     color: white;
-    padding: 5px;
     background-color:grey;
-    font-size: 15px;
+    font-size: 20px;
     margin-top: 10px;
     margin-left: 30px;
     width: 50%;
     align-content: left;
 }
-
-#city-form {
-    border-radius: 25px;
+#add-city {
+    border-radius: 20px;
     color: white;
-    padding: 5px;
     background-color:grey;
     font-size: 15px;
     margin-top: 10px;
     margin-left: 30px;
+    width: 100%;
+    align-content: left;
+    padding-bottom: 10px;
+
+}
+
+#city-form {
+    border-radius: 15px;
+    color: white;
+    font-size: 15px;
+    margin-left: 30px;
+    margin-top: 10px;
     width: 30%;
 }
 
